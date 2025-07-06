@@ -1,4 +1,5 @@
 using FlagX0.Data; // Imports the namespace containing the database context
+using FlagX0.UseCases;
 using Microsoft.AspNetCore.Identity; // Imports ASP.NET Core Identity for user authentication and management
 using Microsoft.EntityFrameworkCore; // Imports Entity Framework Core for database operations
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Adds support for detailed database-related exception pages during development
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IAddFlagUseCase, AddFlagUseCase>();
 
 // Configures ASP.NET Core Identity with default settings, requiring confirmed accounts for sign-in
 // and storing user data in the configured database context
